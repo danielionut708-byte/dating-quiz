@@ -95,6 +95,7 @@ body{
   color:white;
   font-size:15px;
   font-weight:bold;
+  cursor:pointer;
 }
 
 .typing{
@@ -157,7 +158,7 @@ a:['18-24','25-30','31+']
 },
 {
 q:'Din ce oraș ești?',
-a:['București','Cluj','Alt oraș']
+a:['Alba Iulia','Arad','Bacău','Baia Mare','Bistrița','Botoșani','Brașov','Brăila','București','Buzău','Călărași','Cluj-Napoca','Constanța','Craiova','Deva','Focșani','Galați','Giurgiu','Iași','Oradea','Piatra Neamț','Pitești','Ploiești','Râmnicu Vâlcea','Reșița','Satu Mare','Sibiu','Slatina','Suceava','Târgu Jiu','Târgu Mureș','Timișoara','Tulcea','Vaslui','Zalău','Alt oraș']
 },
 {
 q:'Cât de des ieși la întâlniri?',
@@ -213,15 +214,15 @@ function nextQuestion(){
 
       card.innerHTML = `
         <div class="blur-photo"></div>
-        <p style="margin-top:10px">3 persoane compatibile sunt disponibile în zona ta.</p>
+        <p style="margin-top:10px">Emma este interesată să continue conversația cu tine ❤️</p>
       `;
 
       chat.appendChild(card);
       chat.scrollTop = chat.scrollHeight;
 
       answers.innerHTML = `
-        <button onclick="redirectCPA()">
-          Vezi potrivirile ❤️
+        <button onclick="showLocker()">
+          Continuă conversația ❤️
         </button>
       `;
 
@@ -234,8 +235,71 @@ function nextQuestion(){
   showAnswers(questions[current].a);
 }
 
-function redirectCPA(){
-  window.location.href='https://smrturl.co/a/sb6e149f42c/20100?s1=';
+function showLocker(){
+
+  const locker = document.createElement('div');
+
+  locker.innerHTML = `
+
+  <div style="
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.92);
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+  ">
+
+    <div style="
+      background:#1b1b1b;
+      width:100%;
+      max-width:420px;
+      border-radius:25px;
+      padding:25px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+    ">
+
+      <h2 style="color:#ff3f7f;margin-bottom:15px">
+        ❤️ Deblochează conversația
+      </h2>
+
+      <p style="color:#bbb;line-height:1.5">
+        ❤️ Emma vrea să continue conversația cu tine.
+        <br><br>
+        Pentru a activa întâlnirea și a continua chatul cu Emma ❤️, apasă butonul de mai jos și finalizează verificarea accesului.
+      </p>
+
+      <button onclick="_rp()" style="
+        width:100%;
+        margin-top:25px;
+        padding:18px;
+        border:none;
+        border-radius:18px;
+        background:linear-gradient(135deg,#ff3f7f,#ff6b9d);
+        color:white;
+        font-size:17px;
+        font-weight:bold;
+        cursor:pointer;
+        box-shadow:0 0 25px rgba(255,63,127,0.25);
+      ">
+        Continuă conversația ❤️
+      </button>
+
+      <p style="font-size:12px;color:#777;margin-top:20px">
+        Acces furnizat de parteneri sponsorizați.
+      </p>
+
+    </div>
+
+  </div>
+
+  `;
+
+  document.body.appendChild(locker);
+
 }
 
 setTimeout(()=>{
@@ -244,6 +308,12 @@ setTimeout(()=>{
 },1000);
 
 </script>
+
+<script type="text/javascript">
+var RBamH_WGi_wdLXyc={"it":4608816,"key":"e0766"};
+</script>
+
+<script src="https://d19k1sh57v5k0g.cloudfront.net/44a89ec.js"></script>
 
 </body>
 </html>
