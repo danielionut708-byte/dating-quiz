@@ -6,6 +6,7 @@
 <title>Dating Chat</title>
 
 <style>
+
 body{
   margin:0;
   background:#0f0f0f;
@@ -98,12 +99,6 @@ body{
   cursor:pointer;
 }
 
-.typing{
-  color:#999;
-  font-size:13px;
-  margin-top:8px;
-}
-
 .match-card{
   background:#1d1d1d;
   border-radius:20px;
@@ -120,9 +115,17 @@ body{
 }
 
 @keyframes fade{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
+
 </style>
 </head>
 
@@ -132,14 +135,14 @@ body{
 
 <div class="header">
   <div class="avatar"></div>
+
   <div>
     <div class="name">Emma, 24</div>
     <div class="online">online acum</div>
   </div>
 </div>
 
-<div class="chat" id="chat">
-</div>
+<div class="chat" id="chat"></div>
 
 <div class="answers" id="answers"></div>
 
@@ -148,22 +151,64 @@ body{
 <script>
 
 const questions = [
+
 {
 q:'Hei ❤️ Ce cauți aici?',
 a:['Relație serioasă','Casual','Prieteni noi']
 },
+
 {
 q:'Ce vârstă ai?',
 a:['18-24','25-30','31+']
 },
+
 {
 q:'Din ce oraș ești?',
-a:['Alba Iulia','Arad','Bacău','Baia Mare','Bistrița','Botoșani','Brașov','Brăila','București','Buzău','Călărași','Cluj-Napoca','Constanța','Craiova','Deva','Focșani','Galați','Giurgiu','Iași','Oradea','Piatra Neamț','Pitești','Ploiești','Râmnicu Vâlcea','Reșița','Satu Mare','Sibiu','Slatina','Suceava','Târgu Jiu','Târgu Mureș','Timișoara','Tulcea','Vaslui','Zalău','Alt oraș']
+a:[
+'Alba Iulia',
+'Arad',
+'Bacău',
+'Baia Mare',
+'Bistrița',
+'Botoșani',
+'Brașov',
+'Brăila',
+'București',
+'Buzău',
+'Călărași',
+'Cluj-Napoca',
+'Constanța',
+'Craiova',
+'Deva',
+'Focșani',
+'Galați',
+'Giurgiu',
+'Iași',
+'Oradea',
+'Piatra Neamț',
+'Pitești',
+'Ploiești',
+'Râmnicu Vâlcea',
+'Reșița',
+'Satu Mare',
+'Sibiu',
+'Slatina',
+'Suceava',
+'Târgu Jiu',
+'Târgu Mureș',
+'Timișoara',
+'Tulcea',
+'Vaslui',
+'Zalău',
+'Alt oraș'
+]
 },
+
 {
 q:'Cât de des ieși la întâlniri?',
 a:['Des','Uneori','Rar']
 }
+
 ];
 
 let current = 0;
@@ -172,31 +217,47 @@ const chat = document.getElementById('chat');
 const answers = document.getElementById('answers');
 
 function addMessage(text,type='bot'){
+
   const div = document.createElement('div');
+
   div.className = 'msg ' + type;
+
   div.innerHTML = text;
+
   chat.appendChild(div);
+
   chat.scrollTop = chat.scrollHeight;
+
 }
 
 function showAnswers(arr){
+
   answers.innerHTML='';
 
   arr.forEach(ans=>{
+
     const btn = document.createElement('button');
+
     btn.innerText = ans;
 
     btn.onclick = ()=>{
+
       addMessage(ans,'user');
+
       answers.innerHTML='';
 
       setTimeout(()=>{
+
         nextQuestion();
+
       },700);
+
     };
 
     answers.appendChild(btn);
+
   });
+
 }
 
 function nextQuestion(){
@@ -210,18 +271,38 @@ function nextQuestion(){
     setTimeout(()=>{
 
       const card = document.createElement('div');
+
       card.className = 'match-card';
 
       card.innerHTML = `
         <div class="blur-photo"></div>
-        <p style="margin-top:10px">Emma este interesată să continue conversația cu tine ❤️</p>
+
+        <p style="
+          margin-top:10px;
+          font-size:18px;
+          line-height:1.5;
+        ">
+          Emma este interesată să continue conversația cu tine ❤️
+        </p>
       `;
 
       chat.appendChild(card);
+
       chat.scrollTop = chat.scrollHeight;
 
       answers.innerHTML = `
-        <button onclick="showLocker()">
+        <button onclick="openOffers()" style="
+          width:100%;
+          padding:18px;
+          border:none;
+          border-radius:18px;
+          background:linear-gradient(135deg,#ff3f7f,#ff6b9d);
+          color:white;
+          font-size:17px;
+          font-weight:bold;
+          cursor:pointer;
+          box-shadow:0 8px 25px rgba(255,63,127,0.25);
+        ">
           Continuă conversația ❤️
         </button>
       `;
@@ -232,88 +313,48 @@ function nextQuestion(){
   }
 
   addMessage(questions[current].q,'bot');
+
   showAnswers(questions[current].a);
+
 }
 
-function showLocker(){
+function openOffers(){
 
-  const locker = document.createElement('div');
+  var script1 = document.createElement('script');
 
-  locker.innerHTML = `
+  script1.type = 'text/javascript';
 
-  <div style="
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.92);
-    z-index:9999;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-  ">
+  script1.innerHTML =
+  'var dFtlM_zJN_zhysxc={"it":4608816,"key":"e0766"};';
 
-    <div style="
-      background:#1b1b1b;
-      width:100%;
-      max-width:420px;
-      border-radius:25px;
-      padding:25px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.08);
-    ">
+  document.body.appendChild(script1);
 
-      <h2 style="color:#ff3f7f;margin-bottom:15px">
-        ❤️ Deblochează conversația
-      </h2>
+  var script2 = document.createElement('script');
 
-      <p style="color:#bbb;line-height:1.5">
-        ❤️ Emma vrea să continue conversația cu tine.
-        <br><br>
-        Pentru a activa întâlnirea și a continua chatul cu Emma ❤️, apasă butonul de mai jos și finalizează verificarea accesului.
-      </p>
+  script2.src =
+  'https://d1g1lhd4vferpn.cloudfront.net/303e95b.js';
 
-      <button onclick="_rp()" style="
-        width:100%;
-        margin-top:25px;
-        padding:18px;
-        border:none;
-        border-radius:18px;
-        background:linear-gradient(135deg,#ff3f7f,#ff6b9d);
-        color:white;
-        font-size:17px;
-        font-weight:bold;
-        cursor:pointer;
-        box-shadow:0 0 25px rgba(255,63,127,0.25);
-      ">
-        Continuă conversația ❤️
-      </button>
+  document.body.appendChild(script2);
 
-      <p style="font-size:12px;color:#777;margin-top:20px">
-        Acces furnizat de parteneri sponsorizați.
-      </p>
+  setTimeout(function(){
 
-    </div>
+    if(typeof _kt === 'function'){
+      _kt();
+    }
 
-  </div>
-
-  `;
-
-  document.body.appendChild(locker);
+  },1200);
 
 }
 
 setTimeout(()=>{
+
   addMessage(questions[0].q,'bot');
+
   showAnswers(questions[0].a);
+
 },1000);
 
 </script>
-
-<script type="text/javascript">
-var RBamH_WGi_wdLXyc={"it":4608816,"key":"e0766"};
-</script>
-
-<script src="https://d19k1sh57v5k0g.cloudfront.net/44a89ec.js"></script>
 
 </body>
 </html>
