@@ -1,34 +1,408 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <!-- Google tag (gtag.js) - Păstrat pentru statistici, să vezi câți oameni intră -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FKCFFDL8XZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-FKCFFDL8XZ');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Redirecționare HTML (siguranță în caz că userul are JS oprit) -->
-    <meta http-equiv="refresh" content="0;url=">
-    
-    <title>Se încarcă...</title>
+    <title>Oferte Exclusive Shain | Produse la preț de nimic!</title>
+    <style>
+        /* Resetare Stiluri */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <!-- Redirecționare JavaScript instantanee -->
-    <script type="text/javascript">
-        window.location.replace("");
-    </script>
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigație / Header */
+        header {
+            background-color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #000;
+        }
+
+        .logo span {
+            color: #ff4757;
+        }
+
+        .badge {
+            background-color: #ff4757;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Secțiunea Principală (Hero) */
+        .hero {
+            background: linear-gradient(135deg, #ffeaa7 0%, #ff7675 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: #2d3436;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: #ff4757;
+            background: #ffeaa7;
+            padding: 2px 10px;
+            border-radius: 5px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+
+        /* Cuponul Magic */
+        .coupon-box {
+            border: 3px dashed #ff4757;
+            background-color: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .coupon-code {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2d3436;
+            letter-spacing: 3px;
+        }
+
+        .coupon-desc {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        /* Buton de acțiune */
+        .cta-btn {
+            display: inline-block;
+            background-color: #ff4757;
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn:hover {
+            background-color: #e84118;
+            transform: scale(1.05);
+        }
+
+        /* Beneficii */
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid #fff;
+        }
+
+        .card-icon { font-size: 45px; margin-bottom: 15px; }
+        .card h3 { font-size: 22px; margin-bottom: 10px; color: #2d3436; }
+        .card p { color: #7f8c8d; }
+
+        .timer-section {
+            background-color: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 18px;
+        }
+        .timer-section span { color: #ffeaa7; font-weight: bold; }
+
+        footer { text-align: center; padding: 30px; background-color: #f1f2f6; color: #a4b0be; font-size: 14px; }
+
+        /* ==========================================
+           STILURI PENTRU LOCKER (MODAL)
+        ========================================== */
+        .locker-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75); /* Fundal întunecat transparent */
+            backdrop-filter: blur(5px); /* Efect de blur pe fundal */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Clasa asta se activează din JavaScript */
+        .locker-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .locker-window {
+            background-color: #fff;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .locker-overlay.active .locker-window {
+            transform: scale(1);
+        }
+
+        .close-locker {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: #aaa;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .close-locker:hover { color: #000; }
+
+        .locker-title {
+            font-size: 24px;
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .locker-subtitle {
+            color: #636e72;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* Zona unde se încarcă ofertele tale (%offers%) */
+        .offers-zone {
+            background-color: #f1f2f6;
+            border: 2px solid #dfe4ea;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* Stil demonstrativ pentru ofertele din interior */
+        .offer-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ced6e0;
+            text-decoration: none;
+            color: #2d3436;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .offer-item:hover {
+            background: #fff5f5;
+            border-color: #ff4757;
+        }
+        .offer-btn {
+            background: #2ed573;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .locker-footer {
+            font-size: 12px;
+            color: #a4b0be;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 28px; }
+            .hero-content { padding: 20px; }
+            .coupon-code { font-size: 24px; }
+            .cta-btn { width: 100%; padding: 15px; font-size: 18px; }
+        }
+    </style>
 </head>
-<body style="background: #0f0f0f; color: white; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+<body>
 
-    <div style="text-align: center;">
-        <p>Te redirecționăm imediat...</p>
-        <p style="font-size: 14px; color: #666;">Dacă nu ești redirecționat, <a href="" style="color: #ff3f7f;">apasă aici</a>.</p>
+    <!-- Urgență de Sus -->
+    <div class="timer-section">
+        🔥 Atenție! Cupoanele expiră în <span>14 minute și 52 secunde</span>. Grăbește-te!
     </div>
 
+    <header>
+        <div class="logo">SHAIN<span>.ro</span></div>
+        <div class="badge">Ofertă Limitată</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Haine și Accesorii la <span>Preț de Nimic</span>!</h1>
+            <p>Activează cuponul secret de mai jos și primești reduceri de până la 95% + Transport Gratuit la prima ta comandă pe Shain.</p>
+            
+            <div class="coupon-box">
+                <div class="coupon-code" id="main-coupon">SHAIN95WOW</div>
+                <div class="coupon-desc">Apasă pe butonul de mai jos pentru a debloca reducerea</div>
+            </div>
+
+            <br>
+            <!-- Butonul care deschide Locker-ul -->
+            <button class="cta-btn" id="openLockerBtn">
+                REVENDICĂ PRODUSELE ACUM ➔
+            </button>
+        </div>
+    </section>
+
+    <!-- Secțiunea de avantaje -->
+    <section class="features">
+        <div class="card">
+            <div class="card-icon">🛍️</div>
+            <h3>Prețuri de la 1 RON</h3>
+            <p>Rochii, tricouri, gadgeturi și accesorii la prețuri mai mici decât o cafea folosind cuponul special.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🎟️</div>
+            <h3>Cupoane Garantate</h3>
+            <p>Fiecare cod este verificat astăzi și oferă o reducere masivă direct la finalizarea comenzii.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🚚</div>
+            <h3>Livrare Gratuită</h3>
+            <p>Nu plătești nimic pe transport! Produsele vin direct la ușa ta.</p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         STRUCTURA LOCKER-ULUI (MODAL)
+    ========================================== */ -->
+    <div class="locker-overlay" id="lockerOverlay">
+        <div class="locker-window">
+            <span class="close-locker" id="closeLockerBtn">&times;</span>
+            
+            <div class="locker-title">Verificare Necesară! 🔒</div>
+            <div class="locker-subtitle">Pentru a activa codul <b style="color:#ff4757;">SHAIN95WOW</b> și a primi produsele aproape gratis, te rugăm să completezi o scurtă ofertă de mai jos.</div>
+            
+            <!-- AICI ESTE ZONA %offers% IN INTERIORUL PAGINII -->
+            <div class="offers-zone">
+                <!-- Dacă ai script de la o rețea CPA (OGAds, CPABuild etc.), pui scriptul lor aici, sau folosești ofertele tale manuale așa: -->
+                
+                <a href="https://app.hawktrk.com/click?pid=2&offer_id=20100&sub2=u623605&sub5=s1SUBID1HERE" target="_blank" class="offer-item">
+                    <span>1.Introduceți numărul dvs. si bucurati-va de conținut nelimitat!
+</span>
+                    <span class="offer-btn">GRATIS</span>
+                </a>
+                
+                <a href="https://app.hawktrk.com/click?pid=2&offer_id=9944&sub2=u623605&sub5=s1SUBID1HERE" target="_blank" class="offer-item">
+                    <span>2.Caștigă un Playstation 5!</span>
+                    <span class="offer-btn">GRATIS</span>
+                </a>
+
+                <a href="https://app.hawktrk.com/click?pid=2&offer_id=19744&sub2=u623605&sub5=s1SUBID1HERE" target="_blank" class="offer-item">
+                    <span>3.Descoperă te aici!</span>
+                    <span class="offer-btn">GRATIS</span>
+                </a>
+
+                <!-- %offers% text placeholder pentru platforme automate -->
+                <!-- Poti sterge elementele de mai sus daca platforma ta injecteaza automat ofertele aici -->
+            </div>
+
+            <div class="locker-footer">
+                După completare, reducerea se va aplica automat în contul tău Shain.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Shain Promoții. Toate drepturile rezervate. Pagina este o simulare de campanie promoțională.</p>
+    </footer>
+
+    <!-- Scriptul JavaScript pentru deschiderea locker-ului -->
+    <script>
+        const overlay = document.getElementById('lockerOverlay');
+        const openBtn = document.getElementById('openLockerBtn');
+        const closeBtn = document.getElementById('closeLockerBtn');
+
+        // Deschide locker-ul la click pe butonul principal
+        openBtn.addEventListener('click', () => {
+            overlay.classList.add('active');
+        });
+
+        // Închide locker-ul la click pe (X)
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+
+        // Închide locker-ul dacă se dă click în afara ferestrei albe
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
